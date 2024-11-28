@@ -2,7 +2,7 @@
 
 ## 📥 Installation:
 
-### Install [uv](https://ollama.com/download) for linux:
+### Install [uv](https://docs.astral.sh/uv/) for linux:
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
