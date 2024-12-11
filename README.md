@@ -2,7 +2,7 @@
 
 ## 📥 Installation:
 
-### Install [uv](https://docs.astral.sh/uv/) for linux:
+### Install [uv](https://docs.astral.sh/uv/getting-started/installation/) for linux:
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
@@ -33,4 +33,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-Made with ❤️ by [Aashish Gupta](https://github.com/ashuguptahere)
+Made by [Aashish Gupta](https://github.com/ashuguptahere)
