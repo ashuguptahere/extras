@@ -1,6 +1,6 @@
 import os
 import cv2
-from ultralytics import YOLO
+from ultralytics import RTDETR
 
 # Path configurations
 images_path = "images"  # Folder to save frames
@@ -11,8 +11,8 @@ videos_path = "videos"  # Folder containing input videos
 os.makedirs(images_path, exist_ok=True)
 os.makedirs(labels_path, exist_ok=True)
 
-# Load YOLO model (ensure you have the correct weights for detecting people)
-model = YOLO("yolo11x.pt")  # Replace with the path to your YOLO model weights if custom
+# Load RTDETR model (ensure you have the correct weights for detecting people)
+model = RTDETR("rtdetr-x.pt")
 
 # Process each video in the folder
 for video_file in os.listdir(videos_path):
@@ -34,12 +34,12 @@ for video_file in os.listdir(videos_path):
         # Save every 1 second frame
         if frame_count % fps == 0:
             frame_name = (
-                f"{os.path.splitext(video_file)[0]}_frame_{frame_count // fps}.jpg"
+                f"{os.path.splitext(video_file)[0]}_frame_{frame_count // fps:05}.jpg"
             )
             frame_path = os.path.join(images_path, frame_name)
 
             # Perform object detection
-            results = model(frame, conf=0.5)  # Adjust confidence threshold if needed
+            results = model.track(frame, conf=0.4)  # Adjust confidence threshold if needed
 
             # Save the frame
             cv2.imwrite(frame_path, frame)

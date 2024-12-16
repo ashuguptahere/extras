@@ -49,4 +49,4 @@ def display_video_with_bboxes(video_path, bboxes_dir):
 
 
 # Usage
-display_video_with_bboxes("inputs/input.mp4", "text_files")
+display_video_with_bboxes("videos/IP Camera4_L0524 WRM COLOMBO I_L0524 WRM COLOMBO I_20240509213456_20240509213959_89967941.mp4", "labels")
