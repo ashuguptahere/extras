@@ -48,13 +48,23 @@ for video_file in os.listdir(videos_path):
             label_path = os.path.join(
                 labels_path, f"{os.path.splitext(frame_name)[0]}.txt"
             )
+            h, w, _ = frame.shape  # Get the height and width of the frame
+
             with open(label_path, "w") as label_file:
                 for result in results[0].boxes:
                     cls, conf, xyxy = result.cls, result.conf, result.xyxy
                     if cls == 0:  # Class 0 corresponds to 'person' in COCO dataset
                         x_min, y_min, x_max, y_max = map(int, xyxy[0].tolist())
+
+                        # Calculate normalized values for YOLO format
+                        x_center = (x_min + x_max) / 2 / w
+                        y_center = (y_min + y_max) / 2 / h
+                        width = (x_max - x_min) / w
+                        height = (y_max - y_min) / h
+
+                        # Save the YOLO format annotation
                         label_file.write(
-                            f"{int(cls)} {float(conf):.2f} {x_min} {y_min} {x_max} {y_max}\n"
+                            f"{int(cls)} {x_center} {y_center} {width} {height}\n"
                         )
 
         frame_count += 1
