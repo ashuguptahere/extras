@@ -2,9 +2,14 @@
 
 ## 📥 Installation:
 
-### Install [uv](https://docs.astral.sh/uv/getting-started/installation/) for linux:
+## Install [uv](https://docs.astral.sh/uv/getting-started/installation/#installing-uv):
+### 1. For Linux/MacOS:
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+### 2. For Windows:
+```
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 ### Clone the repository:
@@ -16,6 +21,16 @@ cd extras
 ## Install all `uv` dependencies:
 ```
 uv sync
+```
+
+## Activate python environment:
+```
+source .venv/bin/activate
+```
+
+## Start working on the project:
+```
+labelImg images/ labels/classes.txt
 ```
 
 ## 🤝 Contributing:

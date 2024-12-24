@@ -1,0 +1,12 @@
+carry/hold
+crawl
+crouch/kneel
+grab
+jump
+kick
+run
+shoplift
+sit
+stand
+talk
+walk
