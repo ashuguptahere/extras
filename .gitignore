@@ -171,7 +171,6 @@ labels/
 rawframes/
 
 # Unnecessary files
+*.png
 *.pt
 data.csv
-fig.png
-fig2.png

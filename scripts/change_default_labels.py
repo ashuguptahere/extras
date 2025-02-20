@@ -14,7 +14,7 @@ def change_labels(yolo_label_folder):
             for line in lines:
                 parts = line.split()
                 if parts:  # Ensure the line is not empty
-                    parts[0] = "11"  # Update class ID to "11"
+                    parts[0] = "9"  # Update class ID
                     updated_lines.append(" ".join(parts) + "\n")
 
             # Write the updated lines back to the file
