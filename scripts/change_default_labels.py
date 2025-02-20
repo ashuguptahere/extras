@@ -6,7 +6,7 @@ def change_labels(yolo_label_folder):
         if file_name.endswith(".txt"):
             file_path = os.path.join(yolo_label_folder, file_name)
 
-            # Read the file and update the class ID to "11"
+            # Read the file and update the class ID
             with open(file_path, "r") as file:
                 lines = file.readlines()
 
