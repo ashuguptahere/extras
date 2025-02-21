@@ -1,4 +1,5 @@
 import os
+from tqdm import tqdm
 
 # Define old and new class mappings
 class_map = {
@@ -17,7 +18,7 @@ class_map = {
 }
 
 def update_labels(label_dir):
-    for file in os.listdir(label_dir):
+    for file in tqdm(os.listdir(label_dir)):
         if file.endswith('.txt'):
             file_path = os.path.join(label_dir, file)
             updated_lines = []
