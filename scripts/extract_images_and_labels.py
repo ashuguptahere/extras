@@ -1,5 +1,6 @@
 import os
 import cv2
+from tqdm import tqdm
 from ultralytics import RTDETR
 
 # Path configurations
@@ -15,10 +16,8 @@ os.makedirs(labels_path, exist_ok=True)
 model = RTDETR("rtdetr-x.pt")
 
 # Process each video in the folder
-for video_file in os.listdir(videos_path):
+for video_file in tqdm(os.listdir(videos_path)):
     video_path = os.path.join(videos_path, video_file)
-    if not video_path.lower().endswith((".mp4", ".avi", ".mov", ".mkv")):
-        continue
 
     # Open the video file
     cap = cv2.VideoCapture(video_path)
@@ -39,7 +38,9 @@ for video_file in os.listdir(videos_path):
             frame_path = os.path.join(images_path, frame_name)
 
             # Perform object detection
-            results = model.track(frame, conf=0.4)  # Adjust confidence threshold if needed
+            results = model.track(
+                frame, conf=0.35, classes=0
+            )  # Adjust confidence threshold if needed
 
             # Save the frame
             cv2.imwrite(frame_path, frame)
@@ -53,19 +54,18 @@ for video_file in os.listdir(videos_path):
             with open(label_path, "w") as label_file:
                 for result in results[0].boxes:
                     cls, conf, xyxy = result.cls, result.conf, result.xyxy
-                    if cls == 0:  # Class 0 corresponds to 'person' in COCO dataset
-                        x_min, y_min, x_max, y_max = map(int, xyxy[0].tolist())
+                    x_min, y_min, x_max, y_max = map(int, xyxy[0].tolist())
 
-                        # Calculate normalized values for YOLO format
-                        x_center = (x_min + x_max) / 2 / w
-                        y_center = (y_min + y_max) / 2 / h
-                        width = (x_max - x_min) / w
-                        height = (y_max - y_min) / h
+                    # Calculate normalized values for YOLO format
+                    x_center = (x_min + x_max) / 2 / w
+                    y_center = (y_min + y_max) / 2 / h
+                    width = (x_max - x_min) / w
+                    height = (y_max - y_min) / h
 
-                        # Save the YOLO format annotation
-                        label_file.write(
-                            f"{int(cls)} {x_center} {y_center} {width} {height}\n"
-                        )
+                    # Save the YOLO format annotation
+                    label_file.write(
+                        f"{int(cls)} {x_center} {y_center} {width} {height}\n"
+                    )
 
         frame_count += 1
 

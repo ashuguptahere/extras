@@ -15,6 +15,15 @@ class_map = {
     9: 4,  # stand
     10: 5,  # talk
     11: 6  # walk
+
+    # # Reverse class mapping
+    # 0: 0,
+    # 1: 2,
+    # 2: 3,
+    # 3: 7,
+    # 4: 9,
+    # 5: 10,
+    # 6: 11,
 }
 
 def update_labels(label_dir):
@@ -38,5 +47,5 @@ def update_labels(label_dir):
                 f.write("\n".join(updated_lines))
 
 # Update labels in your dataset
-label_directory = "../../Combined/labels"  # Replace with your label folder path
+label_directory = "labels_new/"  # Replace with your label folder path
 update_labels(label_directory)
