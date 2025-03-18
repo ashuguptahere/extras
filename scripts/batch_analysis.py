@@ -73,9 +73,9 @@ def plot_bar_chart(df, labels):
 
 if __name__ == "__main__":
     # Path to the folder containing YOLO image/label files
-    images_dir = "../../new/val/images"
-    labels_dir = "../../new/val/labels"
-    rawframes_dir = "rawframes"
+    base_location = "../../new/val/"
+    images_dir = os.path.join(base_location, "images")
+    labels_dir = os.path.join(base_location, "labels")
 
     # Build Pandas DataFrame
     df = build_dataframe(labels_dir)

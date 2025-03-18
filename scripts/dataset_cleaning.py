@@ -5,23 +5,18 @@ from tqdm import tqdm
 def update_labels(label_dir):
     # Define old and new class mappings
     class_map = {
-        0: None,
-        1: None,
-        2: None,
-        3: None,
-        4: None,
-        5: None,
-        6: None,
-        7: None,
-        8: None,
-        9: None,
-        10: None,
-        11: None,
-        12: None,
-        13: None,
-        14: None,
-        15: None,
-        16: 8,
+        0: 0,  # carry/hold
+        1: None,  # crawl (remove)
+        2: 1,  # crouch/kneel
+        3: 2,  # grab
+        4: None,  # jump
+        5: None,  # kick
+        6: None,  # run (remove)
+        7: 3,  # shoplift
+        8: None,  # sit (remove)
+        9: 4,  # stand
+        10: 5,  # talk
+        11: 6,  # walk
     }
 
     for file in tqdm(os.listdir(label_dir)):
