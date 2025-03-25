@@ -5,13 +5,13 @@ from ultralytics import YOLO
 cwd = os.getcwd()
 
 # Load a COCO-pretrained YOLO model
-model = YOLO("yolo11x.yaml")
+model = YOLO("rtdetr-x.yaml")
 
 # Train the model on the COCO8 example dataset for 100 epochs
 results = model.train(
-    data=f"{cwd}/../../dataset/data.yaml",
-    epochs=300,
+    data="/home/qulith-jr/Desktop/QL/datasets/dataset-normal/data.yaml",
+    epochs=500,
     imgsz=640,
-    device=[0, 1],
-    batch=16,
+    device=1,
+    batch=0.95,
 )

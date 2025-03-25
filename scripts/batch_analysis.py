@@ -73,7 +73,7 @@ def plot_bar_chart(df, labels):
 
 if __name__ == "__main__":
     # Path to the folder containing YOLO image/label files
-    base_location = "../../new/val/"
+    base_location = "/home/qulith-jr/Desktop/QL/datasets/cleaned-and-combined/"
     images_dir = os.path.join(base_location, "images")
     labels_dir = os.path.join(base_location, "labels")
 
@@ -101,6 +101,20 @@ if __name__ == "__main__":
         "weapon",
         "face",
     ]
+    # labels = [
+    #     "carry/hold",
+    #     "crawl",
+    #     "crouch/kneel",
+    #     "grab",
+    #     "jump",
+    #     "kick",
+    #     "run",
+    #     "shoplift",
+    #     "sit",
+    #     "stand",
+    #     "talk",
+    #     "walk",
+    # ]
 
     # Plot bar chart of the dataframe's class_label
     plot_bar_chart(df, labels)

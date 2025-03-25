@@ -168,9 +168,12 @@ annotations/
 annotations2/
 images/
 labels/
+labels_old/
 rawframes/
 
 # Unnecessary files
+*.csv
+*.json
 *.png
 *.pt
-data.csv
+*.pth
