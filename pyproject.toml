@@ -10,6 +10,7 @@ dependencies = [
     "labelimg>=1.8.6",
     "lapx>=0.5.11.post1",
     "mediapipe>=0.10.21",
+    "rfdetr>=1.0.8",
     "scikit-learn>=1.6.1",
     "segment-anything>=1.0",
     "setuptools>=75.6.0",

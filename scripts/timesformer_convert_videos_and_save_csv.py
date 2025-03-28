@@ -93,17 +93,8 @@ def create_splits(base_path, directories):
 
 if __name__ == "__main__":
     base_input = "/home/qulith-jr/Desktop/QL/datasets/KTH_dataset"
-    base_output = "/home/qulith-jr/Desktop/QL/datasets/KTH_dataset_224x224"
-    categories = [
-        "boxing",
-        "handclapping",
-        "handwaving",
-        "jogging",
-        "normal",
-        "running",
-        "shoplifting",
-        "walking",
-    ]
+    base_output = "/home/qulith-jr/Desktop/QL/datasets/KTH_dataset_224x224_8frame"
+    categories = os.listdir(base_input)
 
     # with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
     #     futures = [
