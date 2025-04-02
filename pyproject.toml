@@ -15,6 +15,6 @@ dependencies = [
     "segment-anything>=1.0",
     "setuptools>=75.6.0",
     "split-folders>=0.5.1",
-    "torch>=2.5.1",
+    "torch>=2.6.0",
     "ultralytics>=8.1",
 ]
